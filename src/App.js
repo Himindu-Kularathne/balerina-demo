@@ -1,23 +1,29 @@
-import logo from './logo.svg';
+
 import './App.css';
+import gsap from 'gsap';
+import { useGSAP } from "@gsap/react";
+
+gsap.registerPlugin(useGSAP);
+
 
 function App() {
+
+  useGSAP( () => {
+    gsap.to("#yellow-text-left", {duration: 2, x: 200});
+    gsap.to("#yellow-text-right", {duration: 2, x: -200});
+    gsap.to("#girl-image", {duration: 2, scale: 1.3});
+    gsap.to("#map-image", {duration: 2, y : -100});
+  });
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <section>
+      <p id = "yellow-text-left"> INNOVATE </p>
+      <p id = "yellow-text-right"> WITH BALERINA </p>
+      <img src='./girl.png' alt= "girl" id = "girl-image" ></img>
+      <img src='./map.png' alt= "map" id = "map-image"></img>
+
+      </section>
     </div>
   );
 }
